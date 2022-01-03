@@ -3,9 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/mnc5/Documents/Android_Arctic-Fox/FragmentExample/app/src/main/res/layout/activity_main.xml" value="0.21666666666666667" />
-        <entry key="..\:/Users/mnc5/Documents/Android_Arctic-Fox/FragmentExample/app/src/main/res/layout/fragment_text.xml" value="0.21666666666666667" />
-        <entry key="..\:/Users/mnc5/Documents/Android_Arctic-Fox/FragmentExample/app/src/main/res/layout/fragment_toolbar.xml" value="0.264" />
+        <entry key="..\:/Users/mnc5/Documents/Android_Arctic-Fox/CardDemo/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/mnc5/Documents/Android_Arctic-Fox/CardDemo/app/src/main/res/layout/card_layout.xml" value="0.23125" />
+        <entry key="..\:/Users/mnc5/Documents/Android_Arctic-Fox/CardDemo/app/src/main/res/layout/content_main.xml" value="0.23125" />
       </map>
     </option>
   </component>

@@ -1,0 +1,44 @@
+{
+  "mydata": [
+    {
+      "chapter" : "Chapter One",
+      "detail" : "Item one details",
+      "image" : "@sample/images"
+    },
+    {
+      "chapter" : "Chapter Two",
+      "detail" : "Item two details",
+      "image" : "@sample/images"
+    },
+    {
+      "chapter" : "Chapter Three",
+      "detail" : "Item three details",
+      "image" : "@sample/images"
+    },
+    {
+      "chapter" : "Chapter Four",
+      "detail" : "Item four details",
+      "image" : "@sample/images"
+    },
+    {
+      "chapter" : "Chapter Five",
+      "detail" : "Item five details",
+      "image" : "@sample/images"
+    },
+    {
+      "chapter" : "Chapter Six",
+      "detail" : "Item six details",
+      "image" : "@sample/images"
+    },
+    {
+      "chapter" : "Chapter Seven",
+      "detail" : "Item seven details",
+      "image" : "@sample/images"
+    },
+    {
+      "chapter" : "Chapter Eight",
+      "detail" : "Item eight details",
+      "image" : "@sample/images"
+    }
+  ]
+}

@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.kyonggi.viewmodeldemo.R
 import com.kyonggi.viewmodeldemo.databinding.MainFragmentBinding
+import com.kyonggi.viewmodeldemo.BR.myViewModel
 
 class MainFragment : Fragment() {
 
@@ -16,16 +18,19 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    private var _binding: MainFragmentBinding? = null
-    private val binding get() = _binding!!
+//    private var _binding: MainFragmentBinding? = null
+//    private val binding get() = _binding!!
     private lateinit var viewModel: MainViewModel
+    lateinit var binding: MainFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 //        return inflater.inflate(R.layout.main_fragment, container, false)
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
+//        _binding = MainFragmentBinding.inflate(inflater, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.main_fragment, container, false)
+        binding.lifecycleOwner = this
         return binding.root
     }
 
@@ -34,20 +39,22 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 //        binding.resultText.text = viewModel.getResult().toString()
 
-        val resultObserver = Observer<Float> {
-            result -> binding.resultText.text = result.toString()
-        }
+//        val resultObserver = Observer<Float> {
+//            result -> binding.resultText.text = result.toString()
+//        }
+//
+//        viewModel.getResult().observe(viewLifecycleOwner, resultObserver)
+//
+//        binding.convertButton.setOnClickListener {
+//            if (binding.dollarText.text.isNotEmpty()) {
+//                viewModel.setAmount(binding.dollarText.text.toString())
+////                binding.resultText.text = viewModel.getResult().toString()
+//            } else {
+//                binding.resultText.text = "No Value"
+//            }
+//        }
 
-        viewModel.getResult().observe(viewLifecycleOwner, resultObserver)
-
-        binding.convertButton.setOnClickListener {
-            if (binding.dollarText.text.isNotEmpty()) {
-                viewModel.setAmount(binding.dollarText.text.toString())
-//                binding.resultText.text = viewModel.getResult().toString()
-            } else {
-                binding.resultText.text = "No Value"
-            }
-        }
+        binding.setVariable(myViewModel, viewModel)
     }
 
 }

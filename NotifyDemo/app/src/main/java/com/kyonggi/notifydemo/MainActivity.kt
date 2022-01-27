@@ -1,16 +1,15 @@
 package com.kyonggi.notifydemo
 
-import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.drawable.Icon
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.app.NotificationCompat
 import com.kyonggi.notifydemo.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -63,14 +62,10 @@ class MainActivity : AppCompatActivity() {
 
         val channelID = "com.kyonggi.notifydemo.news"
 
-        // 알림 아래 Action 추가
-        val icon: Icon = Icon.createWithResource(this, android.R.drawable.ic_dialog_info)
+        val action: NotificationCompat.Action =
+            NotificationCompat.Action.Builder(android.R.drawable.ic_dialog_info, "Open", pendingIntent).build()
 
-        val action: Notification.Action =
-            Notification.Action.Builder(icon, "Open", pendingIntent).build()
-        //--------------------//
-
-        val notification = Notification.Builder(
+        val notification = NotificationCompat.Builder(
             this,
             channelID
         ).setContentTitle("Example Notification")
@@ -78,49 +73,49 @@ class MainActivity : AppCompatActivity() {
             .setSmallIcon(android.R.drawable.ic_dialog_info)
             .setChannelId(channelID)
             .setContentIntent(pendingIntent)
-            .setActions(action)
+            .addAction(action)
             .setNumber(10)
             .build()
 
         notificationManager?.notify(notificationID, notification)
 
-        // 요약 알림
-        val GROUP_KEY_NOTIFY = "group_key_notify"
-
-        val builderSummary: Notification.Builder = Notification.Builder(this, channelID)
-            .setSmallIcon(android.R.drawable.ic_dialog_info)
-            .setContentTitle("A Bundle Example")
-            .setContentText("You have a 3 new messages")
-            .setGroup(GROUP_KEY_NOTIFY)
-            .setGroupSummary(true)
-
-        val builder1: Notification.Builder = Notification.Builder(this, channelID)
-            .setSmallIcon(android.R.drawable.ic_dialog_info)
-            .setContentTitle("New Message")
-            .setContentText("You have a new message from Kassidy")
-            .setGroup(GROUP_KEY_NOTIFY)
-
-        val builder2: Notification.Builder = Notification.Builder(this, channelID)
-            .setSmallIcon(android.R.drawable.ic_dialog_info)
-            .setContentTitle("New Message")
-            .setContentText("You have a new message from Caitlyn")
-            .setGroup(GROUP_KEY_NOTIFY)
-
-        val builder3: Notification.Builder = Notification.Builder(this, channelID)
-            .setSmallIcon(android.R.drawable.ic_dialog_info)
-            .setContentTitle("New Message")
-            .setContentText("You have a new message from Jason")
-            .setGroup(GROUP_KEY_NOTIFY)
-
-        val notificationId0 = 100
-        val notificationId1= 101
-        val notificationId2 = 102
-        val notificationId3 = 103
-
-        notificationManager?.notify(notificationId1, builder1.build())
-        notificationManager?.notify(notificationId2, builder2.build())
-        notificationManager?.notify(notificationId3, builder3.build())
-        notificationManager?.notify(notificationId0, builderSummary.build())
+//         요약 알림
+//        val GROUP_KEY_NOTIFY = "group_key_notify"
+//
+//        val builderSummary: NotificationCompat.Builder = NotificationCompat.Builder(this, channelID)
+//            .setSmallIcon(android.R.drawable.ic_dialog_info)
+//            .setContentTitle("A Bundle Example")
+//            .setContentText("You have a 3 new messages")
+//            .setGroup(GROUP_KEY_NOTIFY)
+//            .setGroupSummary(true)
+//
+//        val builder1: NotificationCompat.Builder = NotificationCompat.Builder(this, channelID)
+//            .setSmallIcon(android.R.drawable.ic_dialog_info)
+//            .setContentTitle("New Message")
+//            .setContentText("You have a new message from Kassidy")
+//            .setGroup(GROUP_KEY_NOTIFY)
+//
+//        val builder2: NotificationCompat.Builder = NotificationCompat.Builder(this, channelID)
+//            .setSmallIcon(android.R.drawable.ic_dialog_info)
+//            .setContentTitle("New Message")
+//            .setContentText("You have a new message from Caitlyn")
+//            .setGroup(GROUP_KEY_NOTIFY)
+//
+//        val builder3: NotificationCompat.Builder = NotificationCompat.Builder(this, channelID)
+//            .setSmallIcon(android.R.drawable.ic_dialog_info)
+//            .setContentTitle("New Message")
+//            .setContentText("You have a new message from Jason")
+//            .setGroup(GROUP_KEY_NOTIFY)
+//
+//        val notificationId0 = 100
+//        val notificationId1= 101
+//        val notificationId2 = 102
+//        val notificationId3 = 103
+//
+//        notificationManager?.notify(notificationId1, builder1.build())
+//        notificationManager?.notify(notificationId2, builder2.build())
+//        notificationManager?.notify(notificationId3, builder3.build())
+//        notificationManager?.notify(notificationId0, builderSummary.build())
         // -------------- //
     }
 }

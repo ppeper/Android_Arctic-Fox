@@ -27,9 +27,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun downloadData() {
+    private suspend fun downloadData() {
         for (i in 1..50000) {
-            Log.i("Coroutines", "Download $i in ${Thread.currentThread().name}")
+            withContext(Dispatchers.Main) {
+                binding.tvUserMessage.text = "Download $i in ${Thread.currentThread().name}"
+            }
         }
     }
 }

@@ -1,9 +1,9 @@
 package com.kyonggi.dependencyinjectionexample
 
 import android.util.Log
-import javax.inject.Inject
 
-class MemoryCard @Inject constructor(){
+// third party 라이브러리하고 생각
+class MemoryCard {
 
     init {
         Log.i("TAG", "메모리 카드 생성완료!")

@@ -2,7 +2,7 @@ package com.kyonggi.dependencyinjectionexample
 
 import dagger.Component
 
-@Component(modules = [MemoryCardModule::class])
+@Component(modules = [MemoryCardModule::class, MyBatteryModule::class])
 interface SmartPhoneComponent {
     fun getSmartPhone() : SmartPhone
 }

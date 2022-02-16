@@ -1,8 +1,9 @@
 package com.kyonggi.dependencyinjectionexample
 
 import android.util.Log
+import javax.inject.Inject
 
-class SIMCard (private val serviceProvider: ServiceProvider) {
+class SIMCard @Inject constructor (private val serviceProvider: ServiceProvider) {
 
     init {
         Log.i("TAG", "유심칩 생성완료!")
